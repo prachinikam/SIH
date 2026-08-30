@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KrishiSetu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="logo-wrap">
+          <div class="logo-icon">🌾</div>
+          <div>
+            <div class="logo-text">KrishiSetu</div>
+            <div class="logo-subtext">Digital bridge for farmers and middle agents</div>
+          </div>
+        </div>
+
+        <nav class="main-nav">
+          <a href="#home" data-i18n="navHome">Home</a>
+          <a href="#how-it-works" data-i18n="navHow">How It Works</a>
+          <a href="#market-insights" data-i18n="navMarket">Market Insights</a>
+          <a href="#schemes" data-i18n="navSchemes">Government Schemes</a>
+          <a href="#weather" data-i18n="navWeather">Weather</a>
+          <a href="#about" data-i18n="navAbout">About</a>
+        </nav>
+
+        <div class="nav-right">
+          <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="mr">मराठी</button>
+            <button class="lang-btn" data-lang="hi">हिंदी</button>
+          </div>
+
+          <div class="login-menu">
+            <button class="nav-login btn-primary" data-role="login">Login</button>
+            <div class="login-dropdown">
+              <button class="dropdown-role" data-role="farmer">👨‍🌾 Farmer Login</button>
+              <button class="dropdown-role" data-role="agent">🤝 Middle Agent Login</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="home">
+        <div class="marquee-wrap" aria-label="Important agriculture updates">
+          <div class="marquee-track">
+            <span>🌾 Tomato prices rising in Maharashtra</span>
+            <span>🚜 New farmer support scheme announced</span>
+            <span>💧 Rain advisory for western districts</span>
+            <span>🤝 Verified buyers are active this week</span>
+            <span>📦 Storage assistance for small farmers</span>
+            <span>🌾 Tomato prices rising in Maharashtra</span>
+            <span>🚜 New farmer support scheme announced</span>
+            <span>💧 Rain advisory for western districts</span>
+            <span>🤝 Verified buyers are active this week</span>
+            <span>📦 Storage assistance for small farmers</span>
+          </div>
+        </div>
+
+        <section class="hero-section">
+          <div class="hero-content">
+            <span class="tag" data-i18n="heroTag">Smart agriculture marketplace</span>
+            <h1 data-i18n="heroTitle">Connecting Farmers to the Right Middle Agents</h1>
+            <p data-i18n="heroSubtitle">
+              List your produce, discover suitable middle agents, compare opportunities and make smarter selling decisions.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn btn-primary role-login" data-role="farmer" data-i18n="heroFarmerBtn">👨‍🌾 Login as Farmer</button>
+              <button class="btn btn-secondary role-login" data-role="agent" data-i18n="heroAgentBtn">🤝 Login as Middle Agent</button>
+            </div>
+
+            <div class="register-link" data-i18n="registerLink">Register / Create Account</div>
+          </div>
+
+          <div class="hero-visual">
+            <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=80" alt="Farmer in field" />
+          </div>
+        </section>
+
+        <section class="section-block" id="how-it-works">
+          <div class="section-header">
+            <span class="mini-tag" data-i18n="howItWorksTag">How it works</span>
+            <h2 data-i18n="howItWorksTitle">Simple, transparent and farmer-first</h2>
+          </div>
+
+          <div class="process-cycle">
+            <div class="process-node">
+              <div class="node-number">1</div>
+              <h3 data-i18n="processList">List produce</h3>
+              <p data-i18n="processListText">Farmer shares crop, quantity, quality and location.</p>
+            </div>
+            <div class="process-node">
+              <div class="node-number">2</div>
+              <h3 data-i18n="processMatch">Smart match</h3>
+              <p data-i18n="processMatchText">KrishiSetu recommends verified agents by crop, quantity and distance.</p>
+            </div>
+            <div class="process-node">
+              <div class="node-number">3</div>
+              <h3 data-i18n="processNegotiate">Negotiate</h3>
+              <p data-i18n="processNegotiateText">Compare offers, understand fair price and settle confidently.</p>
+            </div>
+            <div class="process-node">
+              <div class="node-number">4</div>
+              <h3 data-i18n="processDeal">Confirm deal</h3>
+              <p data-i18n="processDealText">Schedule pickup, arrange transport and close the transaction.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block" id="schemes">
+          <div class="section-header">
+            <span class="mini-tag" data-i18n="schemesTag">Support</span>
+            <h2 data-i18n="schemesTitle">Government Schemes for Farmers</h2>
+          </div>
+
+          <div class="scheme-grid">
+            <article class="scheme-card">
+              <div class="scheme-icon">🌾</div>
+              <h3 data-i18n="schemeTitlePmKisan">PM-KISAN</h3>
+              <p data-i18n="schemeDescPmKisan">Income support to eligible small and marginal farmers.</p>
+              <div class="scheme-meta" data-i18n="schemeMetaPmKisan">Eligibility: registered farmer</div>
+              <button class="inline-link" data-i18n="knowMore">Know More →</button>
+            </article>
+
+            <article class="scheme-card">
+              <div class="scheme-icon">🛡️</div>
+              <h3 data-i18n="schemeTitleFasal">PM Fasal Bima Yojana</h3>
+              <p data-i18n="schemeDescFasal">Crop insurance for losses caused by natural calamities.</p>
+              <div class="scheme-meta" data-i18n="schemeMetaFasal">Eligibility: insured crop</div>
+              <button class="inline-link" data-i18n="knowMore">Know More →</button>
+            </article>
+
+            <article class="scheme-card">
+              <div class="scheme-icon">💧</div>
+              <h3 data-i18n="schemeTitleIrrigation">PM Krishi Sinchai Yojana</h3>
+              <p data-i18n="schemeDescIrrigation">Improves irrigation access and water-use efficiency.</p>
+              <div class="scheme-meta" data-i18n="schemeMetaIrrigation">Eligibility: farmer groups</div>
+              <button class="inline-link" data-i18n="knowMore">Know More →</button>
+            </article>
+
+            <article class="scheme-card">
+              <div class="scheme-icon">🌱</div>
+              <h3 data-i18n="schemeTitleSoil">Soil Health Card</h3>
+              <p data-i18n="schemeDescSoil">Soil test recommendations for better crop quality and yield.</p>
+              <div class="scheme-meta" data-i18n="schemeMetaSoil">Eligibility: all farmers</div>
+              <button class="inline-link" data-i18n="knowMore">Know More →</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="weather-section" id="weather">
+          <div class="section-header">
+            <span class="mini-tag" data-i18n="weatherTag">Weather</span>
+            <h2 data-i18n="weatherTitle">Weather for Your Farm</h2>
+          </div>
+
+          <div class="weather-search-row">
+            <input id="weatherCityInput" type="text" data-i18n-placeholder="weatherSearchPlaceholder" placeholder="Search city, district or village" />
+            <button id="weatherSearchBtn" class="btn btn-primary" data-i18n="weatherSearchBtn">Search</button>
+          </div>
+
+          <div class="weather-grid">
+            <div class="weather-current card-panel">
+              <div class="weather-header-row">
+                <div>
+                  <div id="weatherLocation" class="location">📍 Search a city</div>
+                  <div id="weatherTemp" class="temp">--°C</div>
+                </div>
+                <div id="weatherCondition" class="weather-condition">🌤️ No data yet</div>
+              </div>
+              <div class="weather-metrics">
+                <div><span>Humidity</span><strong id="weatherHumidity">--</strong></div>
+                <div><span>Wind</span><strong id="weatherWind">--</strong></div>
+                <div><span>Rain</span><strong id="weatherRain">--</strong></div>
+              </div>
+
+              <div class="weather-map-wrap">
+                <div id="weatherMap" class="weather-map" aria-label="Nearby agent map"></div>
+              </div>
+            </div>
+
+            <div class="weather-cta card-panel">
+              <h3 data-i18n="agriUpdateTitle">Agri Update</h3>
+              <div class="update-card highlight">
+                <span data-i18n="smartAdviceLabel">🌾 Smart Advice</span>
+                <strong data-i18n="smartAdviceText">Best harvest window is next 48 hours</strong>
+              </div>
+              <div class="update-card">
+                <span data-i18n="waterSavingLabel">💧 Water Saving</span>
+                <strong data-i18n="waterSavingText">Use drip irrigation if rainfall is below 25%</strong>
+              </div>
+              <div class="update-card">
+                <span data-i18n="marketPulseLabel">📦 Market Pulse</span>
+                <strong data-i18n="marketPulseText">Tomato demand remains strong in western Maharashtra</strong>
+              </div>
+            </div>
+
+            <div class="weather-cta card-panel">
+              <h3 data-i18n="farmerAlertsTitle">Farmer Alerts</h3>
+              <div class="update-card highlight">
+                <span data-i18n="transportLabel">🚜 Transport</span>
+                <strong data-i18n="transportText">Three local trucks available for same-day dispatch</strong>
+              </div>
+              <div class="update-card">
+                <span data-i18n="agentDemandLabel">🤝 Agent Demand</span>
+                <strong data-i18n="agentDemandText">Verified agents are actively buying onion and tomato</strong>
+              </div>
+              <div class="update-card">
+                <span data-i18n="noticeLabel">📣 Notice</span>
+                <strong data-i18n="noticeText">Government subsidy registration closes this week</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block" id="market-insights">
+          <div class="section-header">
+            <span class="mini-tag">Market Insights</span>
+            <h2>Current crop demand and price trends</h2>
+          </div>
+
+          <div class="market-grid">
+            <div class="market-card">
+              <div class="market-header">
+                <span>🍅 Tomato</span>
+                <span class="trend-up">↗ +8%</span>
+              </div>
+              <div class="market-price">₹24/kg</div>
+              <div class="market-meta">Demand: High</div>
+            </div>
+
+            <div class="market-card">
+              <div class="market-header">
+                <span>🧅 Onion</span>
+                <span class="trend-up">↗ +5%</span>
+              </div>
+              <div class="market-price">₹28/kg</div>
+              <div class="market-meta">Demand: Moderate</div>
+            </div>
+
+            <div class="market-card">
+              <div class="market-header">
+                <span>🥔 Potato</span>
+                <span class="trend-flat">→ 0%</span>
+              </div>
+              <div class="market-price">₹21/kg</div>
+              <div class="market-meta">Demand: Stable</div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside id="dashboard" class="dashboard hidden">
+        <div class="profile-panel"> 
+          <div class="profile-avatar" id="profileAvatar">👨‍🌾</div>
+          <div>
+            <h3 id="profileName">Your Profile</h3>
+            <p id="profileLocation">📍 Add your address</p>
+            <p id="profileType">Farmer / Agent</p>
+            <div id="profileRating" class="profile-rating">⭐ 0.0</div>
+          </div>
+        </div>
+
+        <div class="dashboard-panel farmer-panel active">
+          <div class="dashboard-header-row">
+            <div>
+              <span class="mini-tag">Farmer dashboard</span>
+              <h2>Sell Your Produce</h2>
+            </div>
+            <button class="btn btn-secondary logout-btn">Logout</button>
+          </div>
+
+          <div class="scale-toggle">
+            <button class="scale-btn active" data-scale="small">Small Scale</button>
+            <button class="scale-btn" data-scale="large">Large Scale</button>
+          </div>
+
+          <form id="farmerForm" class="form-stack">
+            <div class="field-grid two-col">
+              <label>
+                Crop
+                <select id="cropSelect">
+                  <option>Tomato</option>
+                  <option>Onion</option>
+                  <option>Potato</option>
+                  <option>Wheat</option>
+                  <option>Rice</option>
+                  <option>Sugarcane</option>
+                  <option>Grapes</option>
+                  <option>Maize</option>
+                </select>
+              </label>
+
+              <label>
+                Quantity Available
+                <input type="text" id="cropQuantity" value="500 kg" />
+              </label>
+            </div>
+
+            <div class="field-grid two-col">
+              <label>
+                Quality
+                <select>
+                  <option>Grade A</option>
+                  <option>Grade B</option>
+                  <option>Grade C</option>
+                </select>
+              </label>
+
+              <label>
+                Expected Price (₹/kg)
+                <input type="text" value="₹24/kg" />
+              </label>
+            </div>
+
+            <div class="field-grid two-col">
+              <label>
+                Location
+                <input type="text" value="Satara" />
+              </label>
+
+              <label>
+                Harvest Date
+                <input type="date" value="2026-08-25" />
+              </label>
+            </div>
+
+            <div class="field-grid two-col">
+              <label>
+                Storage Availability
+                <select>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </label>
+
+              <label>
+                Transportation Required
+                <select>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="upload-box">
+              Upload Farmer-Agent Photo
+              <input type="file" />
+            </label>
+
+            <button type="submit" class="btn btn-primary full-width">Find Middle Agents →</button>
+          </form>
+
+          <div class="quick-actions">
+            <button class="action-btn">➕ Add Produce</button>
+            <button class="action-btn">🤝 Find Agents</button>
+            <button class="action-btn">💰 Compare Offers</button>
+            <button class="action-btn">📦 My Deals</button>
+            <button class="action-btn">🌦️ Weather</button>
+            <button class="action-btn">📊 Market Insights</button>
+          </div>
+
+          <section class="result-section">
+            <div class="cards-header">
+              <h3>Middle Agents Interested in Your Crop</h3>
+              <span class="badge success">Tomato • 500 kg • Satara</span>
+            </div>
+            <div id="matchList" class="agent-grid"></div>
+          </section>
+
+          <section class="insights-row">
+            <div class="mini-panel">
+              <h3>Fair Price Alert</h3>
+              <div class="deal-alert">
+                <div class="alert-top" id="bestPriceFrom">Offer received from Raj Agro Traders</div>
+                <div class="alert-price" id="bestPriceValue">₹19/kg</div>
+                <p id="bestPriceMessage">⚠️ This offer is below the current estimated range.</p>
+                <div class="alert-range" id="bestPriceRange">Current estimated range: ₹22–25/kg</div>
+              </div>
+            </div>
+
+            <div class="mini-panel">
+              <h3>Market Insight</h3>
+              <div class="insight-box">
+                <div class="price-inline" id="marketPriceBox">₹23/kg</div>
+                <div class="trend positive">↗ Increasing</div>
+              </div>
+              <ul>
+                <li><span>Current range</span><strong id="currentRangeText">₹22–25/kg</strong></li>
+                <li><span>Best matches</span><strong id="bestMatchText">7 nearby</strong></li>
+                <li><span>Transport</span><strong id="transportText">3 options</strong></li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="compare-panel">
+            <div class="cards-header">
+              <h3>Compare Offers</h3>
+              <span class="badge neutral">3 offers</span>
+            </div>
+            <div class="compare-table">
+              <div class="compare-row header-row">
+                <span>Agent</span>
+                <span>Offer</span>
+                <span>Distance</span>
+                <span>Rating</span>
+              </div>
+              <div class="compare-row">
+                <span>Raj Agro</span>
+                <span>₹24/kg</span>
+                <span>18 km</span>
+                <span>4.8</span>
+              </div>
+              <div class="compare-row">
+                <span>FreshMart</span>
+                <span>₹25/kg</span>
+                <span>27 km</span>
+                <span>4.6</span>
+              </div>
+              <div class="compare-row">
+                <span>Shree Agro</span>
+                <span>₹22/kg</span>
+                <span>12 km</span>
+                <span>4.7</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel-row">
+            <div class="mini-panel">
+              <h3>Small Farmer Group Opportunity</h3>
+              <div class="bulk-box">
+                <div class="bulk-value">600 kg</div>
+                <p>Nearby farmers can combine produce to meet bulk buyer requirements.</p>
+                <div class="bulk-tags">
+                  <span>100 kg</span>
+                  <span>150 kg</span>
+                  <span>200 kg</span>
+                  <span>150 kg</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mini-panel">
+              <h3>My Deals</h3>
+              <div class="deal-card">
+                <div class="deal-head">
+                  <strong>Tomato Deal</strong>
+                  <span class="badge success">Confirmed</span>
+                </div>
+                <p>Agent: Raj Agro Traders</p>
+                <p>Quantity: 500 kg</p>
+                <p>Price: ₹24/kg</p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="dashboard-panel agent-panel hidden">
+          <div class="dashboard-header-row">
+            <div>
+              <span class="mini-tag">Middle agent dashboard</span>
+              <h2>Register Your Agency</h2>
+            </div>
+            <button class="btn btn-secondary logout-btn">Logout</button>
+          </div>
+
+          <form id="agencyForm" class="form-stack">
+            <div class="field-grid two-col">
+              <label>
+                Agency Name
+                <input type="text" value="Raj Agro Traders" />
+              </label>
+              <label>
+                Owner Name
+                <input type="text" value="Rajesh Patil" />
+              </label>
+            </div>
+
+            <div class="field-grid two-col">
+              <label>
+                Mobile Number
+                <input type="tel" value="98765 12345" />
+              </label>
+              <label>
+                District
+                <input type="text" value="Satara" />
+              </label>
+            </div>
+
+            <div class="field-grid two-col">
+              <label>
+                Business Address
+                <input type="text" value="Market Yard, Satara" />
+              </label>
+              <label>
+                State
+                <input type="text" value="Maharashtra" />
+              </label>
+            </div>
+
+            <div class="field-grid two-col">
+              <label>
+                Crops Purchased
+                <input type="text" value="Tomato, Onion, Potato" />
+              </label>
+              <label>
+                Typical Purchase Quantity
+                <select>
+                  <option>Medium</option>
+                  <option>Small</option>
+                  <option>Large</option>
+                  <option>Bulk</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="field-grid two-col">
+              <label>
+                Preferred Locations
+                <input type="text" value="Satara, Wai, Mahabaleshwar" />
+              </label>
+              <label>
+                Price Range
+                <input type="text" value="₹22–30/kg" />
+              </label>
+            </div>
+
+            <label class="upload-box">
+              Business Verification Documents
+              <input type="file" />
+            </label>
+
+            <button type="submit" class="btn btn-primary full-width">Register Agency</button>
+          </form>
+
+          <section class="agent-metrics">
+            <div class="metric-card">
+              <strong>12</strong>
+              <span>Active Requirements</span>
+            </div>
+            <div class="metric-card">
+              <strong>38</strong>
+              <span>Farmer Responses</span>
+            </div>
+            <div class="metric-card">
+              <strong>8</strong>
+              <span>Active Deals</span>
+            </div>
+            <div class="metric-card">
+              <strong>128</strong>
+              <span>Completed Deals</span>
+            </div>
+          </section>
+
+          <section class="result-section">
+            <div class="cards-header">
+              <h3>Post Requirement</h3>
+              <span class="badge success">Open to matching farmers</span>
+            </div>
+            <form id="agentRequirementForm" class="form-stack compact-form">
+              <div class="field-grid two-col">
+                <label>
+                  Crop
+                  <select>
+                    <option>Tomato</option>
+                    <option>Onion</option>
+                    <option>Potato</option>
+                  </select>
+                </label>
+                <label>
+                  Quantity
+                  <input type="text" value="5 Tons" />
+                </label>
+              </div>
+
+              <div class="field-grid two-col">
+                <label>
+                  Quality
+                  <input type="text" value="Grade A" />
+                </label>
+                <label>
+                  Preferred Location
+                  <input type="text" value="Satara" />
+                </label>
+              </div>
+
+              <div class="field-grid two-col">
+                <label>
+                  Expected Price
+                  <input type="text" value="₹23–25/kg" />
+                </label>
+                <label>
+                  Required By
+                  <input type="date" value="2026-08-30" />
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary full-width">Post Requirement</button>
+            </form>
+          </section>
+
+          <section class="result-section">
+            <div class="cards-header">
+              <h3>Matching Farmers</h3>
+              <span class="badge success">4 profiles</span>
+            </div>
+            <div class="farmer-match-list">
+              <div class="farmer-match-item">
+                <div>
+                  <strong>Santosh Patil</strong>
+                  <p>Grade A onion • 1.8 tons • Satara</p>
+                </div>
+                <span class="small-pill">91% match</span>
+              </div>
+              <div class="farmer-match-item">
+                <div>
+                  <strong>Kailas Jadhav</strong>
+                  <p>Grade A onion • 2.5 tons • Wai</p>
+                </div>
+                <span class="small-pill">89% match</span>
+              </div>
+              <div class="farmer-match-item">
+                <div>
+                  <strong>Anita Wagh</strong>
+                  <p>Premium onion • 1.4 tons • Satara</p>
+                </div>
+                <span class="small-pill">86% match</span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </aside>
+
+      <div id="authModal" class="modal hidden">
+        <div class="modal-card">
+          <button class="close-btn" id="closeModal">×</button>
+          <div class="modal-header">
+            <h3 id="modalTitle">Login</h3>
+            <p id="modalSubtitle">Continue to your dashboard</p>
+          </div>
+
+          <form id="authForm" class="form-stack">
+            <label>
+              <span id="loginNameLabel">Full Name</span>
+              <input id="loginName" type="text" placeholder="Enter your name" required />
+            </label>
+            <label>
+              Mobile Number
+              <input id="loginPhone" type="tel" placeholder="Enter mobile number" required />
+            </label>
+            <label>
+              Address
+              <input id="loginAddress" type="text" placeholder="Village / District / State" required />
+            </label>
+            <label>
+              Password
+              <input id="loginPassword" type="password" placeholder="Create password" required />
+            </label>
+            <button type="submit" class="btn btn-primary full-width">Continue</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="agentDetailModal" class="modal hidden">
+        <div class="modal-card large-modal">
+          <button class="close-btn" id="closeAgentModal">×</button>
+          <div class="agent-detail-header">
+            <div>
+              <div class="mini-tag">Verified Agent</div>
+              <h3>Raj Agro Traders</h3>
+            </div>
+            <div class="rating-box">⭐ 4.8/5</div>
+          </div>
+
+          <div class="agent-detail-grid">
+            <div>
+              <p><strong>Location:</strong> 18 km from you</p>
+              <p><strong>Experience:</strong> 7 years</p>
+              <p><strong>Crops purchased:</strong> Tomato, Onion, Potato</p>
+              <p><strong>Typical quantity:</strong> 300–1000 kg</p>
+            </div>
+            <div>
+              <p><strong>Price range:</strong> ₹22–25/kg</p>
+              <p><strong>Response rate:</strong> 96%</p>
+              <p><strong>Deals completed:</strong> 128+</p>
+              <p><strong>Payment reliability:</strong> Excellent</p>
+            </div>
+          </div>
+
+          <div class="review-box">
+            <h4>Previous Deals</h4>
+            <ul>
+              <li>Tomato — 800 kg — Completed</li>
+              <li>Onion — 1.2 ton — Completed</li>
+              <li>Potato — 500 kg — Completed</li>
+            </ul>
+          </div>
+
+          <div class="review-box">
+            <h4>Ratings & Reviews</h4>
+            <div class="review-item">⭐⭐⭐⭐⭐ "Good communication and timely payment."</div>
+            <div class="review-item">⭐⭐⭐⭐⭐ "Very professional and reliable."</div>
+          </div>
+
+          <div class="offer-box">
+            <h4>Make an Offer</h4>
+            <label>
+              Offer Price (₹/kg)
+              <input type="text" id="offerInput" value="₹24" />
+            </label>
+            <button class="btn btn-primary" id="sendOfferBtn">Send Offer</button>
+          </div>
+        </div>
+      </div>
+
+      <button id="chatbotToggle" class="chatbot-toggle">🤖 KrishiSetu Assistant</button>
+
+      <div id="chatbotPanel" class="chatbot-panel hidden">
+        <div class="chatbot-header">
+          <strong>KrishiSetu Assistant</strong>
+          <button id="chatbotClose">×</button>
+        </div>
+        <div class="chat-body">
+          <div class="chat-bubble bot">Namaskar! 👋 I'm KrishiSetu Assistant. How can I help you?</div>
+        </div>
+        <div class="quick-questions">
+          <button class="quick-btn">How do I sell my crop?</button>
+          <button class="quick-btn">Find middle agent</button>
+          <button class="quick-btn">Today's market price</button>
+          <button class="quick-btn">Government schemes</button>
+        </div>
+        <div class="chat-input-row">
+          <input type="text" id="chatInput" placeholder="Ask something..." />
+          <button id="chatSend">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js"></script>
+  </body>
+</html>
